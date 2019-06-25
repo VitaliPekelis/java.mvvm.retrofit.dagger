@@ -1,14 +1,16 @@
 package me.ibrahimsn.viewmodel.ui.list;
 
-import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import javax.inject.Inject;
 
@@ -22,7 +24,8 @@ import me.ibrahimsn.viewmodel.ui.detail.DetailsFragment;
 
 public class ListFragment extends BaseFragment implements RepoSelectedListener {
 
-    @BindView(R.id.recyclerView) RecyclerView listView;
+    @BindView(R.id.recyclerView)
+    RecyclerView listView;
     @BindView(R.id.tv_error) TextView errorTextView;
     @BindView(R.id.loading_view) View loadingView;
 
