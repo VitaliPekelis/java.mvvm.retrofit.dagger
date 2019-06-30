@@ -54,18 +54,20 @@ public class DetailsViewModel extends ViewModel {
     }
 
     private void loadRepo(String[] repo_details) {
-        disposable.add(repoRepository.getRepo(repo_details[0], repo_details[1]).subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<Repo>() {
-            @Override
-            public void onSuccess(Repo value) {
-                selectedRepo.setValue(value);
-            }
+        disposable.add(repoRepository.getRepo(repo_details[0], repo_details[1])
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(new DisposableSingleObserver<Repo>() {
+                    @Override
+                    public void onSuccess(Repo value) {
+                        selectedRepo.setValue(value);
+                    }
 
-            @Override
-            public void onError(Throwable e) {
+                    @Override
+                    public void onError(Throwable e) {
 
-            }
-        }));
+                    }
+                }));
     }
 
     @Override

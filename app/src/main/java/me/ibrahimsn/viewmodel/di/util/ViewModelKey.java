@@ -16,7 +16,19 @@ import dagger.MapKey;
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ViewModelKey {
-
     Class<? extends ViewModel> value();
-
 }
+
+
+
+
+/* KOTLIN
+ **
+ * @Documented
+ * @MapKey
+ * @Target(ElementType.METHOD)
+ * @Retention(RetentionPolicy.RUNTIME)
+ * public @interface ViewModelKey {
+ *     Class<? extends ViewModel> value();
+ * }
+ * */
