@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import io.reactivex.Single;
 import me.ibrahimsn.viewmodel.data.model.Repo;
+import me.ibrahimsn.viewmodel.util.Logger;
 
 public class RepoRepository {
 
@@ -17,6 +18,7 @@ public class RepoRepository {
     }
 
     public Single<List<Repo>> getRepositories() {
+        Logger.logDebug();
         return repoService.getRepositories();
     }
 

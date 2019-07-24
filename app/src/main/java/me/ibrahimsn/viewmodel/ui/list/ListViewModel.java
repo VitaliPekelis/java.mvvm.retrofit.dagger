@@ -15,6 +15,7 @@ import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
 import me.ibrahimsn.viewmodel.data.model.Repo;
 import me.ibrahimsn.viewmodel.data.rest.RepoRepository;
+import me.ibrahimsn.viewmodel.util.Logger;
 
 public class ListViewModel extends ViewModel {
 
@@ -44,8 +45,10 @@ public class ListViewModel extends ViewModel {
 
     private void fetchRepos() {
         loading.setValue(true);
-        disposable.add(repoRepository.getRepositories().subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<List<Repo>>() {
+        disposable.add(repoRepository.getRepositories()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(new DisposableSingleObserver<List<Repo>>() {
                     @Override
                     public void onSuccess(List<Repo> value) {
                         repoLoadError.setValue(false);
